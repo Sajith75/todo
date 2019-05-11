@@ -1,0 +1,85 @@
+
+
+spring boot documentation
+https://docs.spring.io/spring-boot/docs/1.3.1.RELEASE/reference/htmlsingle/#howto-use-java-6
+
+
+java api documentation
+https://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html
+
+
+spring react sample application
+https://spring.io/guides/tutorials/react-and-spring-data-rest/
+
+ReactJS REST API GET Example
+https://www.roytuts.com/react-rest-api-get-example/
+
+
+
+
+INSERT INTO `todo`.`user` (`name`, `password`, `username`) VALUES ('charaka', 'password1', 'charakaw');
+INSERT INTO `todo`.`user` (`name`, `password`, `username`) VALUES ('sajith', 'password2', 'sajithp');
+
+
+INSERT INTO `todo`.`todolist` (`description`, `name`, `status`) VALUES ('description', 'task1', 'new');
+INSERT INTO `todo`.`todolist` (`description`, `name`, `status`) VALUES ('description', 'task2', 'complated');
+
+
+INSERT INTO `todo`.`todolist` (`description`, `name`, `status`,`user_id`) VALUES ('description', 'task1', 'completed',1);
+
+
+
+{
+    "name": "task5",
+    "description": "description",
+    "status": "started"
+}
+
+    {
+        "id": 3,
+        "name": "task2",
+        "description": "description",
+        "status": "complated"
+    }
+
+
+
+
+
+cha_w@hotmail.com
+-----------------------------------------------------------------------------------------------------------------
+
+@Entity
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String name;
+	private String username;
+	private String password;
+
+	@OneToMany(mappedBy = "user")
+	List<ToDoList> toDoList;
+	
+	
+	
+@Entity
+@Table(name="todolist")
+public class ToDoList {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String name;
+	private String description;
+	private String status;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	User user;
+	
+	
+	
+	
+	
+-----------------------------------------------------------------------------------------------------------------
+
