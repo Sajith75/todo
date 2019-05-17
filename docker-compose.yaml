@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  api:
+    image: springapp
+    build: .
+    ports:
+    - target: 8383
+      protocol: tcp
+    depends_on: 
+    - db
+  db:
+    image: mysql:5.7
+    environment: 
+    -  MYSQL_ROOT_PASSWORD=${PASS}
+    -  MYSQL_DATABASE=todo
